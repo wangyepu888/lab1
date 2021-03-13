@@ -3,7 +3,7 @@
 import re
 import sys
 from operator import itemgetter
-from heapq import nlargest
+from collections import Counter
 
 
 ### mapper.py ### 
@@ -47,6 +47,9 @@ for reduc_line in reduc_fs.splitlines():
 
 
 sorted_dict_ip_count = sorted(dict_ip_count.items(), key=itemgetter(1), reverse=True)
-ThreeHighest = nlargest(3, sorted_dict_ip_count, key = sorted_dict_ip_count.get) 
-for ip, count in ThreeHighest:
+k = Counter(sorted_dict_ip_count) 
+  
+# Finding 3 highest values 
+high = k.most_common(3) 
+for ip, count in high:
     print '%s\t%s' % (ip, count)
