@@ -19,8 +19,8 @@ for line in fs.splitlines():
     match = pat.search(line)
     if match:
     	#print '%s\t%s' % ('[' + match.group('hour') + ':00' + ']' + match.group('ip'), 1)
-    	for item in match.group('hour'):
-        	mapper_results.write('%s\t%s' % ('[' + match.group('hour') + ':00' + ']' + match.group('ip'), 1) + "\n")
+    	
+        mapper_results.write('%s\t%s' % ('[' + match.group('hour') + ':00' + ']' + match.group('ip'), 1) + "\n")
 
 
 mapper_results.close()
