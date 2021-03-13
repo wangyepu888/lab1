@@ -3,8 +3,6 @@
 import re
 import sys
 from operator import itemgetter
-from collections import Counter
-
 
 ### mapper.py ### 
 logfile = "/root/mapreduce-test/mapreduce-test-data/access.log"
@@ -47,9 +45,5 @@ for reduc_line in reduc_fs.splitlines():
 
 
 sorted_dict_ip_count = sorted(dict_ip_count.items(), key=itemgetter(1), reverse=True)
-k = Counter(sorted_dict_ip_count) 
-  
-# Finding 3 highest values 
-high = k.most_common(3) 
-for ip, count in high:
+for ip, count in sorted_dict_ip_count[:3]:
     print '%s\t%s' % (ip, count)
