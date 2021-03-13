@@ -47,6 +47,6 @@ for reduc_line in reduc_fs.splitlines():
 
 
 sorted_dict_ip_count = sorted(dict_ip_count.items(), key=itemgetter(1), reverse=True)
-ThreeHighest = nlargest(3, sorted_dict_ip_count, key = sorted_dict_ip_count.get) 
+ThreeHighest = nlargest(3, sorted_dict_ip_count, key = itemgetter(1)) 
 for ip, count in ThreeHighest:
     print '%s\t%s' % (ip, count)
