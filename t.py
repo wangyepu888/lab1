@@ -47,5 +47,5 @@ for reduc_line in reduc_fs.splitlines():
 
 sorted_dict_ip_count = sorted(dict_ip_count.items(), key=itemgetter(1), reverse=True)
 
-for ip, count in sorted_dict_ip_count:
+for ip, count in sorted_dict_ip_count[:3]:
     print '%s\t%s' % (ip, count)
