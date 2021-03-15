@@ -29,6 +29,7 @@ mapper_results.close()
 reduc_f = open(mapper_results_file, "r")
 reduc_fs = reduc_f.read()
 
+top = defaultdict(list)
 
 for reduc_line in reduc_fs.splitlines():
     reduc_line = reduc_line.strip().split('\t')
@@ -44,7 +45,7 @@ for reduc_line in reduc_fs.splitlines():
 
 
 
- for i in range(24):
+ for i in range(0,24):
     t3 = sorted(top[i],key=lambda x:x[1], reverse=True)[:3]
     print '%s\t%s' % (i,t3)
 
