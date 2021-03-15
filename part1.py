@@ -31,29 +31,25 @@ reduc_fs = reduc_f.read()
 
 
 for reduc_line in reduc_fs.splitlines():
-    reduc_line = reduc_line.strip()
-    ip, num = reduc_line.split('\t')
+    reduc_line = reduc_line.strip().split('\t')
+    hr_ip, count = line
+    hr,ip = hr_ip.split(' ')
     try:
-        num = int(num)
-
-        dict_ip_count[ip] = dict_ip_count.get(ip, 0) + num
+        hr = int(hr)
+        count = int(count)
+        top[hr].append([ip,count])
 
     except ValueError:
         pass
 
 
-sorted_dict_ip_count = sorted(dict_ip_count.items(), key=itemgetter(1), reverse=True)
-t = defaultdict(list)
 
-for ip, count in sorted_dict_ip_count:
-    hr = ip[1:3]
-    hr = int(hr)
-    ip_a = ip[7:]
-    count = int(count)
-    t[hr].append([ip_a, count])
  for i in range(24):
     t3 = sorted(top[i],key=lambda x:x[1], reverse=True)[:3]
     print '%s\t%s' % (i,t3)
+
+
+
 
 
 
