@@ -45,8 +45,8 @@ for reduc_line in reduc_fs.splitlines():
 
 
 
- for i in range(0,24):
-    t3 = sorted(top[i],key=lambda x:x[1], reverse=True)[:3]
+ for i in range(24):
+    t3 = sorted(top[i],key=lambda x:x[1], reverse=True)[0:3]
     print '%s\t%s' % (i,t3)
 
 
