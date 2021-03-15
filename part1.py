@@ -42,22 +42,19 @@ for line in sys.stdin:
         pass
 top = defaultdict(list)
 sorted_dict_ip_count = sorted(dict_ip_count.items(), key=itemgetter(1), reverse=True)
-for hr_ip,count in sorted_dict_ip_count:
-    hr = hr_ip[1:3]
-    hr=int(hr)
-    ip=hr_ip[7:]
-    count=int(count)
-    top[hr].append([ip,count])
+dic={}
+L=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+for key, value in sorted_dict_ip_count.items():
+    key=str(key)
+    for i in range(24):
+       j='0'+str(i)
+       if (key[1]==j[-2])&(key[2]==j[-1])&(L[i]<3):
+          dic[key]=value
+          L[i]=L[i]+1
     
-
-
-
-
-for i in range(24):
-    top_3 = sorted(top[i],key=lambda x:x[1],reverse=True)[:3]
-    print '%s\t%s' % (i,top_3)
-
-
+for key, value in dic.items():
+    print ('%s\t%s' % (key,value))
 
 
 
